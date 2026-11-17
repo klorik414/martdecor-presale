@@ -1,6 +1,9 @@
 const menuButton=document.querySelector('.menu');
 const nav=document.querySelector('.header nav');
-menuButton?.addEventListener('click',()=>nav.classList.toggle('open'));
+menuButton?.addEventListener('click',()=>{
+  const isOpen=nav.classList.toggle('open');
+  menuButton.setAttribute('aria-expanded',String(isOpen));
+});
 nav?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>nav.classList.remove('open')));
 document.querySelector('#request-form')?.addEventListener('submit',event=>{
   event.preventDefault();
